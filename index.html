@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>valorthecarplug — Quality Vehicles, Flexible Financing</title>
+<meta name="description" content="Browse our inventory and drive away with a low down payment. Financing available on every vehicle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Dynamic Background Slideshow Styles for Hero */
+  .hero-slideshow {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 1s ease-in-out;
+  }
+  .hero-slideshow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(12, 20, 32, 0.65); /* Overlay to ensure content readability */
+    z-index: 1;
+  }
+  .hero-slideshow > * {
+    position: relative;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header" id="header">
+  <div class="header__inner container">
+    <a href="index.html" class="brand">
+      <span class="brand__mark" id="brand-mark">
+        <img src="logo.jpg" alt="valorthecarplug logo" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+      </span>
+      <span class="brand__name" id="brand-name">valorthecarplug</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="inventory.html" class="nav-link">Inventory</a>
+      <a href="financing.html" class="nav-link">Financing</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="header__actions">
+      <button class="icon-btn" id="search-toggle" type="button" aria-expanded="false" aria-controls="search-bar" aria-label="Search inventory">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a class="header__phone" id="header-phone" href="#" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span id="header-phone-text"></span>
+      </a>
+      <button class="hamburger" id="hamburger" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="search-bar" id="search-bar" hidden>
+    <form class="search-bar__form container" id="search-form">
+      <input type="search" id="search-input" name="q" placeholder="Search by make, model, or year..." aria-label="Search inventory">
+      <button type="submit" class="btn btn--primary btn--sm">Search</button>
+    </form>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <div class="mobile-nav__scrim" data-close-nav></div>
+  <div class="mobile-nav__panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <button class="icon-btn mobile-nav__close" id="mobile-nav-close" type="button" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav class="mobile-nav__links" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="inventory.html">Inventory</a>
+      <a href="financing.html">Financing</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="inventory.html" class="btn btn--primary">Browse Inventory</a>
+    <div class="mobile-nav__contact">
+      <span id="mobile-phone"></span>
+      <span id="mobile-address"></span>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+  <div id="sections-root">
+    <!-- Homepage sections are fetched from Supabase and rendered here by js/home.js -->
+  </div>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand" id="footer-brand">valorthecarplug</div>
+        <p class="footer__blurb">Quality vehicles with financing built around your budget — not the other way around.</p>
+      </div>
+      <div>
+        <div class="footer__heading">Explore</div>
+        <div class="footer__links">
+          <a href="inventory.html">Full Inventory</a>
+          <a href="financing.html">Apply for Financing</a>
+          <a href="index.html">Down Payment Options</a>
+          <a href="shipping-policy.html">Shipping Policy</a>
+          <a href="refund-policy.html">Refund Policy</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Contact</div>
+        <div class="footer__contact">
+          <span class="footer__contact-item" id="footer-phone">Phone coming soon</span>
+          <span class="footer__contact-item" id="footer-whatsapp" hidden></span>
+          <span class="footer__contact-item" id="footer-address"></span>
+          <span class="footer__contact-item" id="footer-facebook" hidden></span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span id="footer-copyright">© 2026 valorthecarplug. All rights reserved.</span>
+      <span id="footer-license" hidden></span>
+      <!-- Admin Link -->
+      <a href="/admin/index.html" class="btn btn--outline btn--sm" style="margin-top: 10px; color: var(--paper); border-color: rgba(243, 244, 238, 0.3);">Admin Portal</a>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float whatsapp-float--left" id="whatsapp-float" href="#" target="_blank" rel="noopener" hidden aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 2C6.508 2 2 6.477 2 11.99c0 1.99.593 3.837 1.612 5.39L2 22l4.766-1.579A10.03 10.03 0 0 0 12.05 22C17.593 22 22 17.522 22 12.009 22 6.477 17.593 2 12.05 2zm0 18.15c-1.774 0-3.42-.522-4.802-1.417l-.344-.22-3.02 1.001.998-3.055-.223-.348a8.14 8.14 0 0 1-1.267-4.322c0-4.494 3.638-8.15 8.15-8.15 4.494 0 8.15 3.656 8.15 8.15-.017 4.51-3.656 8.15-8.15 8.15z"/></svg>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script type="module" src="js/main.js"></script>
+<script type="module" src="js/home.js"></script>
+
+<!-- Script for Auto-Rotating Background Images -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const carImages = [
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1600&q=80"
+    ];
+
+    let currentIndex = 0;
+
+    function applyHeroSlideshow() {
+      const heroElement = document.querySelector(".hero");
+      if (!heroElement) return;
+
+      heroElement.classList.add("hero-slideshow");
+
+      // Set initial background image
+      heroElement.style.backgroundImage = `url('${carImages[0]}')`;
+
+      // Cycle background image every 5 seconds
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % carImages.length;
+        heroElement.style.backgroundImage = `url('${carImages[currentIndex]}')`;
+      }, 5000);
+    }
+
+    // Observer to attach slideshow once js/home.js dynamically renders the hero section
+    const observer = new MutationObserver((mutations, obs) => {
+      const hero = document.querySelector(".hero");
+      if (hero) {
+        applyHeroSlideshow();
+        obs.disconnect();
+      }
+    });
+
+    observer.observe(document.getElementById("sections-root"), {
+      childList: true,
+      subtree: true
+    });
+  });
+</script>
+</body>
+</html>

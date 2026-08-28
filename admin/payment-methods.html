@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Methods — Valor</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="admin-layout">
+  <div id="admin-sidebar-mount"></div>
+  <main class="admin-main">
+    <div class="admin-page-header">
+      <div>
+        <h1>Payment Methods</h1>
+        <p>Controls which options a buyer can choose at checkout.</p>
+      </div>
+      <button type="button" class="btn btn--primary" id="add-btn">+ Add Payment Method</button>
+    </div>
+
+    <div class="admin-panel" id="form-panel" hidden>
+      <h2 id="form-title">Add Payment Method</h2>
+      <form id="method-form" novalidate>
+        <input type="hidden" id="method-id">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Display Name</label>
+            <input type="text" id="name" required placeholder="e.g. Zelle">
+          </div>
+          <div class="form-field">
+            <label for="type">Type</label>
+            <select id="type" required>
+              <option value="zelle">Zelle</option>
+              <option value="cashapp">CashApp</option>
+              <option value="paypal">PayPal</option>
+              <option value="bank">Bank Transfer</option>
+              <option value="crypto">Crypto</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="notes">Account Details / Notes <span class="form-field__optional">(internal only — not shown to buyers)</span></label>
+          <textarea id="notes" rows="3" placeholder="e.g. Zelle email: payments@roadwayauto.com"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="sort_order">Sort Order</label>
+            <input type="number" id="sort_order" value="0" step="1">
+          </div>
+          <div class="form-field">
+            <label style="margin-bottom: 10px;">Status</label>
+            <label class="form-check" style="margin-bottom:0;">
+              <input type="checkbox" id="active">
+              Active (buyers can select this at checkout)
+            </label>
+          </div>
+        </div>
+        <div class="admin-form-actions">
+          <button type="submit" class="btn btn--primary">Save Payment Method</button>
+          <button type="button" class="btn btn--outline" id="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Sort</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr><td colspan="5" class="admin-table-empty">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script type="module" src="js/payment-methods.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orders — Valor</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="admin-layout">
+  <div id="admin-sidebar-mount"></div>
+  <main class="admin-main">
+    <div class="admin-page-header">
+      <div>
+        <h1>Orders</h1>
+        <p>Direct-purchase orders placed at checkout.</p>
+      </div>
+      <div class="form-field" style="margin:0; min-width:200px;">
+        <select id="status-filter">
+          <option value="">All Statuses</option>
+          <option value="pending">Pending</option>
+          <option value="contacted">Contacted</option>
+          <option value="paid">Paid</option>
+          <option value="shipped">Shipped</option>
+          <option value="completed">Completed</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="admin-panel detail-panel" id="detail-panel" hidden>
+      <h2>Order Details</h2>
+      <div id="detail-content"></div>
+
+      <h3>Update Status</h3>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="detail-status">Status</label>
+          <select id="detail-status"></select>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="detail-notes">Internal Notes</label>
+        <textarea id="detail-notes" rows="3" placeholder="e.g. Payment confirmed via Zelle 8/22, shipping arranged for Friday"></textarea>
+      </div>
+      <div class="admin-form-actions">
+        <button type="button" class="btn btn--primary" id="detail-save">Save Changes</button>
+        <button type="button" class="btn btn--outline" id="detail-close">Close</button>
+      </div>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Order Code</th>
+            <th>Vehicle</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Placed</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr><td colspan="6" class="admin-table-empty">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script type="module" src="js/orders.js"></script>
+</body>
+</html>

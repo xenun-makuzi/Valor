@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cars — Roadway Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="admin-layout">
+  <div id="admin-sidebar-mount"></div>
+  <main class="admin-main">
+    <div class="admin-page-header">
+      <div>
+        <h1>Cars</h1>
+        <p>Full inventory — specs, pricing, photos, and status.</p>
+      </div>
+      <button type="button" class="btn btn--primary" id="add-btn">+ Add Car</button>
+    </div>
+
+    <div class="admin-panel" id="form-panel" hidden>
+      <h2 id="form-title">Add Car</h2>
+      <div class="form-error" id="form-error" hidden></div>
+
+      <form id="car-form" novalidate>
+        <input type="hidden" id="car-id">
+
+        <h3>Basic Info</h3>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="category_id">Category</label>
+            <select id="category_id"><option value="">— None —</option></select>
+          </div>
+          <div class="form-field">
+            <label for="year">Year</label>
+            <input type="number" id="year" required min="1900" max="2100" step="1">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="make">Make</label>
+            <input type="text" id="make" required>
+          </div>
+          <div class="form-field">
+            <label for="model">Model</label>
+            <input type="text" id="model" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="trim_level">Trim <span class="form-field__optional">(optional)</span></label>
+            <input type="text" id="trim_level">
+          </div>
+          <div class="form-field">
+            <label for="vin">VIN <span class="form-field__optional">(optional)</span></label>
+            <input type="text" id="vin">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="slug">URL Slug</label>
+          <input type="text" id="slug" required>
+        </div>
+
+        <h3>Pricing</h3>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="full_price">Full Price ($)</label>
+            <input type="number" id="full_price" required min="0" step="1">
+          </div>
+          <div class="form-field">
+            <label for="down_payment">Down Payment ($)</label>
+            <input type="number" id="down_payment" required min="0" step="1">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="monthly_payment">Monthly Payment ($) <span class="form-field__optional">(optional)</span></label>
+          <input type="number" id="monthly_payment" min="0" step="1">
+        </div>
+
+        <h3>Specs</h3>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="mileage">Mileage</label>
+            <input type="number" id="mileage" min="0" step="1">
+          </div>
+          <div class="form-field">
+            <label for="title_status">Title Status</label>
+            <input type="text" id="title_status" value="Clean title">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="exterior_color">Exterior Color</label>
+            <input type="text" id="exterior_color">
+          </div>
+          <div class="form-field">
+            <label for="interior_color">Interior Color</label>
+            <input type="text" id="interior_color">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="engine">Engine</label>
+            <input type="text" id="engine">
+          </div>
+          <div class="form-field">
+            <label for="transmission">Transmission</label>
+            <input type="text" id="transmission">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="condition">Condition</label>
+          <input type="text" id="condition">
+        </div>
+
+        <h3>Features &amp; Description</h3>
+        <div class="form-field">
+          <label for="features">Features <span class="form-field__optional">(one per line)</span></label>
+          <textarea id="features" rows="5" placeholder="Apple CarPlay and Android Auto&#10;Leather seats&#10;Sunroof"></textarea>
+        </div>
+        <div class="form-field">
+          <label for="description">Description <span class="form-field__optional">(optional)</span></label>
+          <textarea id="description" rows="3"></textarea>
+        </div>
+
+        <h3>Status</h3>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="status">Status</label>
+            <select id="status">
+              <option value="available">Available</option>
+              <option value="pending">Pending</option>
+              <option value="sold">Sold</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="sort_order">Sort Order</label>
+            <input type="number" id="sort_order" value="0" step="1">
+          </div>
+        </div>
+        <label class="form-check">
+          <input type="checkbox" id="featured">
+          Featured (shown first on the homepage)
+        </label>
+
+        <h3>Photos</h3>
+        <div id="image-manager-content">
+          <p class="form-note">Save this car first — then you can add photos.</p>
+        </div>
+
+        <div class="admin-form-actions">
+          <button type="submit" class="btn btn--primary">Save Car</button>
+          <button type="button" class="btn btn--outline" id="cancel-btn">Close</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Vehicle</th>
+            <th>Category</th>
+            <th>Pricing</th>
+            <th>Status</th>
+            <th>Featured</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr><td colspan="7" class="admin-table-empty">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script type="module" src="js/cars.js"></script>
+</body>
+</html>

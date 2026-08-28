@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Settings — Valor</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="admin-layout">
+  <div id="admin-sidebar-mount"></div>
+  <main class="admin-main">
+    <div class="admin-page-header">
+      <div>
+        <h1>Site Settings</h1>
+        <p>Contact info, branding, and policy pages — used across every page of the site.</p>
+      </div>
+    </div>
+
+    <div class="admin-panel">
+      <form id="settings-form" novalidate>
+        <h3 style="margin-top:0; padding-top:0; border-top:none;">General</h3>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="site_name">Site Name</label>
+            <input type="text" id="site_name">
+          </div>
+          <div class="form-field">
+            <label for="logo_url">Logo URL <span class="form-field__optional">(optional)</span></label>
+            <input type="text" id="logo_url">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" placeholder="(555) 000-0000">
+          </div>
+          <div class="form-field">
+            <label for="whatsapp_number">WhatsApp Number <span class="form-field__optional">(digits only, with country code)</span></label>
+            <input type="text" id="whatsapp_number" placeholder="15550000000">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="facebook_url">Facebook Page URL</label>
+            <input type="text" id="facebook_url" placeholder="https://facebook.com/yourpage">
+          </div>
+          <div class="form-field">
+            <label for="dealer_license">Dealer License #</label>
+            <input type="text" id="dealer_license">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="address">Address</label>
+          <input type="text" id="address">
+        </div>
+
+        <h3>Shipping Policy</h3>
+        <p class="form-note" style="margin-top:-8px; margin-bottom: var(--space-4);">Each section becomes a heading + paragraph on the Shipping Policy page.</p>
+        <div id="shipping-repeater"></div>
+        <button type="button" class="btn btn--outline btn--sm repeater-add" id="add-shipping-block">+ Add Section</button>
+
+        <h3>Refund &amp; Returns Policy</h3>
+        <div id="refund-repeater"></div>
+        <button type="button" class="btn btn--outline btn--sm repeater-add" id="add-refund-block">+ Add Section</button>
+
+        <div class="admin-form-actions">
+          <button type="submit" class="btn btn--primary">Save Settings</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script type="module" src="js/settings.js"></script>
+</body>
+</html>

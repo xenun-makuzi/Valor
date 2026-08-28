@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Down Payment Tiers — Valor</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="admin-layout">
+  <div id="admin-sidebar-mount"></div>
+  <main class="admin-main">
+    <div class="admin-page-header">
+      <div>
+        <h1>Down Payment Tiers</h1>
+        <p>Powers the homepage tag cards and the Inventory down-payment filter.</p>
+      </div>
+      <button type="button" class="btn btn--primary" id="add-btn">+ Add Tier</button>
+    </div>
+
+    <div class="admin-panel" id="form-panel" hidden>
+      <h2 id="form-title">Add Tier</h2>
+      <form id="tier-form" novalidate>
+        <input type="hidden" id="tier-id">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="label">Label</label>
+            <input type="text" id="label" required placeholder="e.g. $500 Down">
+          </div>
+          <div class="form-field">
+            <label for="max_amount">Max Amount ($)</label>
+            <input type="number" id="max_amount" required min="0" step="1">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="sort_order">Sort Order</label>
+            <input type="number" id="sort_order" value="0" step="1">
+          </div>
+          <div class="form-field">
+            <label style="margin-bottom: 10px;">Status</label>
+            <label class="form-check" style="margin-bottom:0;">
+              <input type="checkbox" id="active" checked>
+              Active (visible on the site)
+            </label>
+          </div>
+        </div>
+        <div class="admin-form-actions">
+          <button type="submit" class="btn btn--primary">Save Tier</button>
+          <button type="button" class="btn btn--outline" id="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Label</th>
+            <th>Max Amount</th>
+            <th>Sort</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr><td colspan="5" class="admin-table-empty">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script type="module" src="js/tiers.js"></script>
+</body>
+</html>

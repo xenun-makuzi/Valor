@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Valor </title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="admin-layout">
+  <div id="admin-sidebar-mount"></div>
+  <main class="admin-main">
+    <div class="admin-page-header">
+      <div>
+        <h1>Dashboard</h1>
+        <p>A quick look at what needs attention.</p>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-card__label">Pending Orders</div>
+        <div class="stat-card__value" id="stat-pending-orders">—</div>
+        <a href="orders.html" class="stat-card__link">Review orders &rarr;</a>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__label">Pending Financing Apps</div>
+        <div class="stat-card__value" id="stat-pending-financing">—</div>
+        <a href="financing.html" class="stat-card__link">Review applications &rarr;</a>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__label">Available Cars</div>
+        <div class="stat-card__value" id="stat-available-cars">—</div>
+        <a href="cars.html" class="stat-card__link">Manage inventory &rarr;</a>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__label">Total Cars Listed</div>
+        <div class="stat-card__value" id="stat-total-cars">—</div>
+        <a href="cars.html" class="stat-card__link">View all &rarr;</a>
+      </div>
+    </div>
+
+    <div class="admin-panel">
+      <h2>Quick Links</h2>
+      <div class="admin-table-wrap" style="box-shadow:none;">
+        <table class="admin-table">
+          <tbody>
+            <tr><td><a href="cars.html">Cars</a></td><td>Add, edit, or remove vehicles and their photos.</td></tr>
+            <tr><td><a href="categories.html">Categories</a></td><td>Manage the category filter (Sedan, SUV, Truck, etc).</td></tr>
+            <tr><td><a href="tiers.html">Down Payment Tiers</a></td><td>Edit the quick-filter down payment amounts.</td></tr>
+            <tr><td><a href="sections.html">Homepage Sections</a></td><td>Add, reorder, show/hide, or edit homepage content blocks.</td></tr>
+            <tr><td><a href="payment-methods.html">Payment Methods</a></td><td>Turn checkout payment options on or off.</td></tr>
+            <tr><td><a href="orders.html">Orders</a></td><td>Direct-purchase orders and their status.</td></tr>
+            <tr><td><a href="financing.html">Financing Applications</a></td><td>Review, approve/reject, and assign a guide.</td></tr>
+            <tr><td><a href="settings.html">Site Settings</a></td><td>Phone, WhatsApp, Facebook, address, and policies.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
