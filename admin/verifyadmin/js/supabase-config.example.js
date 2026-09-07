@@ -1,0 +1,3 @@
+// Copy this file to supabase-config.js and replace the two values.
+window.VERIFYADMIN_SUPABASE_URL = 'https://isewdkdqwkybcclhskhr.supabase.co';
+window.VERIFYADMIN_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlzZXdka2Rxd2t5YmNjbGhza2hyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcxNzE3MDEsImV4cCI6MjEwMjc0NzcwMX0.wSP_ndyrBSs7uJ_GoIk0Pvczj6SwHVPOcLLT8xo_A_8';
