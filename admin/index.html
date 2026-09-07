@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard — Valor </title>
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -46,6 +47,17 @@
       </div>
     </div>
 
+    <!-- Quick Actions Row -->
+    <div class="admin-panel" style="margin-top: 20px;">
+      <h2>Verification Tools</h2>
+      <div style="display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap;">
+        <a href="verifyadmin/verifyadmin.html" class="stat-card__link" style="display: inline-block; padding: 10px 16px; background-color: #000; color: #fff; border-radius: 4px; text-decoration: none;">Document Verification</a>
+        <button id="copy-verify-link-btn" type="button" style="padding: 10px 16px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; font-family: inherit; font-weight: 500;">
+          Copy Call Verification Link
+        </button>
+      </div>
+    </div>
+
     <div class="admin-panel">
       <h2>Quick Links</h2>
       <div class="admin-table-wrap" style="box-shadow:none;">
@@ -65,6 +77,23 @@
     </div>
   </main>
 </div>
+
+<script>
+  document.getElementById('copy-verify-link-btn').addEventListener('click', function() {
+    const relativePath = 'verifyadmin/verify.html';
+    const fullUrl = new URL(relativePath, window.location.href).href;
+    
+    navigator.clipboard.writeText(fullUrl).then(() => {
+      const originalText = this.textContent;
+      this.textContent = 'Link Copied!';
+      setTimeout(() => {
+        this.textContent = originalText;
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script type="module" src="js/dashboard.js"></script>
